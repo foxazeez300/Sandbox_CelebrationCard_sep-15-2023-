@@ -1,42 +1,47 @@
 //Global Variables
-int appWidth, appHight;
-float xRect, yRect, WidthRect, HightRect;
-float xRect2, yRect2, widthRect2, HeightRect2;
+int appWidth, appHeight;
+float xRectBackground, yRectBackground, widthRectBackground, heightRectBackground;
+float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
 //
 void setup() {
-  //println & println
+  //Print & Println
   println("Hello World");
-  println("Width:"+width, "\t", "Height:"+height); 
-  println("Display Width: "+displayWidth, "\tDisplay Width: "+displayHeight);
+  println("Width:"+width, "\t", "Height:"+height);
+  println("Display Width: "+displayWidth, "\tDisplay Height: "+displayHeight);
   //Character Escapes, tab, new
   //
-  //fullscreen();
+  //fullScreen();
   size(1000, 800);
-  int appWidth = width;
-  int appHeight = height;
+  appWidth = width;
+  appHeight = height;
   //
-  //population
-  xRect = appWidth*0;
-  yRect = appHeight*0;
-  WidthRect = appWidth;
-  HeightRect = appHeight;
-  xRect2 = appWidth*0;
-  yRect2 = appHeight*0;
-  WidthRect2 = appWidth;
-  HeightRect2 = appHeight;
+  //Population
+  xRectBackground = appWidth*0;
+  yRectBackground = appHeight*0;
+  widthRectBackground = appWidth-1;
+  heightRectBackground = appHeight-1;
+  xRectQuit = appWidth*1/4;
+  yRectQuit = appHeight*1/4;
+  widthRectQuit = appWidth*1/2;
+  heightRectQuit = appHeight*1/2;
+  //
 } //End setup
 //
 void draw() {
-    rect(xRect, yRect, widthRect, HeightRect);
-    rect(xRect2, yRect2, widthRect2, HeightRect2);
-} //End draw 
+  rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
+  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+} //End draw
 //
 void keyPressed() {
-  
-} //EndPressed
+} //End keyPressed
 //
 void mousePressed() {
- 
+  //When mouse is pressed
+  println("Mouse X: ", mouseX, "Mouse Y: ", mouseY);
+  //
+  //xRect2, yRect2, widthRect2, heightRect2
+  if ( mouseX>xRectQuit && mouseX<xRectQuit+widthRectQuit && mouseY>yRectQuit && mouseY<yRectQuit+heightRectQuit ) exit();
+  //
 } //End mousePressed
-// 
+//
 //End MAIN Program
