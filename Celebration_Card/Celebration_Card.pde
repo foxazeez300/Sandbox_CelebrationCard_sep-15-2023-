@@ -11,7 +11,7 @@ void setup() {
   //Character Escapes, tab, new
   //
   //fullScreen();
-  size(1000, 800);
+  size(600, 400);
   appWidth = width;
   appHeight = height;
   //
@@ -24,6 +24,12 @@ void setup() {
   yRectQuit = appHeight*1/4;
   widthRectQuit = appWidth*1/2;
   heightRectQuit = appHeight*1/2;
+  //
+  //DIVs
+  rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground) ;
+  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  //rect(); //Image,forground, near the top
+  //rect(); //Copy and Paste this for all rect()s
   //
 } //End setup
 //
@@ -39,7 +45,6 @@ void mousePressed() {
   //When mouse is pressed
   println("Mouse X: ", mouseX, "Mouse Y: ", mouseY);
   //
-  //xRect2, yRect2, widthRect2, heightRect2
   if ( mouseX>xRectQuit && mouseX<xRectQuit+widthRectQuit && mouseY>yRectQuit && mouseY<yRectQuit+heightRectQuit ) exit();
   //
 } //End mousePressed
