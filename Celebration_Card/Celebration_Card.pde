@@ -16,10 +16,12 @@ void setup() {
   println("Display Width: "+displayWidth, "\tDisplay Height: "+displayHeight);
   //Character Escapes, tab, new
   //
-    size(400,400);
+    size(800,400);
   img = loadImage("pexels-joyston-judah-933054.jpg");
+  resize(800, 400)
   //
-  fullScreen();
+  //fullScreen();
+  size(800,400);
   appWidth = width;
   appHeight = height;
   //
@@ -57,7 +59,7 @@ void draw() {
   //size = [pixelNumberFontSize]; //integer number
   //textFont( [fontVariable], size ); // states which font to use
   //text ( [textStringName], [four rect() variables copied from DIVs]);
-    image(img, 0, 0);
+  image(img, 0, 0);
   //
 } //End draw
 //
