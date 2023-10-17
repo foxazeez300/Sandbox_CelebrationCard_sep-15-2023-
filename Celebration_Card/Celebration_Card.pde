@@ -1,13 +1,13 @@
 //Global Variables
 int appWidth, appHeight;
-float xRectBackground, yRectBackground, widthRectBackground, heightRectBackground;
+float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
 //String ; //All text variables as name=value pairs
 //PFont ; //All fonts used
 //color ; //colour palette & inks
 int sizeFont, size; //Text Variables
 //
-PImage img;
+PImage picBackground;
 //
 void setup() {
   //Print & Println
@@ -17,25 +17,33 @@ void setup() {
   //Character Escapes, tab, new
   //
   size(800,400);
-  img = loadImage("mountain-6086083_640.jpg");
+  picBackground = loadImage("mountain-6086083_640.jpg");
   //
-  //fullScreen();
-  size(640,427);
+  //fullScreen(); //displayWidth, displayHeight
+  size( 800, 600 ); //Landscape
   appWidth = width;
   appHeight = height;
   //
   //Population
-  xRectBackground = appWidth*0;
-  yRectBackground = appHeight*0;
-  widthRectBackground = appWidth-1;
-  heightRectBackground = appHeight-1;
+  backgroundImageX = appWidth*0;
+  backgroundImageY = appHeight*0;
+  backgroundImageWidth = appWidth-1;
+  backgroundImageHeight = appHeight-1;
   xRectQuit = appWidth*1/4;
   yRectQuit = appHeight*1/4;
   widthRectQuit = appWidth*1/2;
   heightRectQuit = appHeight*1/2;
+  //Concatenation of Pathways
+  String up = "..";
+  String open = "/";
+  String imagesPath = up + open;
+  String landScapeImage = "imagesUsed/Landscape & Square Images/";
+  String BackgroundImage = "mountain-6086083_640.jpg";
+  println(imagesPath + landScapeImage + BackgroundImage);
+  picBackground = loadImage( imagesPath + landScapeImage + BackgroundImage);
   //
   //DIVs
-  rect(xRectBackground, yRectBackground, widthRectBackground, heightRectBackground);
+  rect(backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   //rect(); //Image, foreground, near the top
   //rect(); //Copy and Paste this for all rect()s
@@ -58,7 +66,7 @@ void draw() {
   //size = [pixelNumberFontSize]; //integer number
   //textFont( [fontVariable], size ); // states which font to use
   //text ( [textStringName], [four rect() variables copied from DIVs]);
-  image(img, 0, 0);
+  image(picBackground, 0, 0);
   //
 } //End draw
 //
