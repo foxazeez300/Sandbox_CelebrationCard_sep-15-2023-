@@ -16,12 +16,11 @@ void setup() {
   println("Display Width: "+displayWidth, "\tDisplay Height: "+displayHeight);
   //Character Escapes, tab, new
   //
-    size(800,400);
-  img = loadImage("pexels-joyston-judah-933054.jpg");
-  resize(800, 400)
+  size(800,400);
+  img = loadImage("mountain-6086083_640.jpg");
   //
   //fullScreen();
-  size(800,400);
+  size(640,427);
   appWidth = width;
   appHeight = height;
   //
