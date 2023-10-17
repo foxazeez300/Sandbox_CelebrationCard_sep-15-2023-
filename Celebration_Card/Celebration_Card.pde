@@ -7,6 +7,7 @@ float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
 //color ; //colour palette & inks
 int sizeFont, size; //Text Variables
 //
+PImage img;
 //
 void setup() {
   //Print & Println
@@ -15,8 +16,10 @@ void setup() {
   println("Display Width: "+displayWidth, "\tDisplay Height: "+displayHeight);
   //Character Escapes, tab, new
   //
-  //fullScreen();
-  size(600, 400);
+    size(400,400);
+  img = loadImage("pexels-joyston-judah-933054.jpg");
+  //
+  fullScreen();
   appWidth = width;
   appHeight = height;
   //
@@ -54,6 +57,7 @@ void draw() {
   //size = [pixelNumberFontSize]; //integer number
   //textFont( [fontVariable], size ); // states which font to use
   //text ( [textStringName], [four rect() variables copied from DIVs]);
+    image(img, 0, 0);
   //
 } //End draw
 //
