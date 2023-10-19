@@ -1,11 +1,13 @@
 //Global Variables
 int appWidth, appHeight;
+String title="Happy Birthday";
+PFont titleFont;
+color purple=#2C08FF, resetDefaultInk=#FFFFFF;
+int sizeFont, size;
+float xTitle, yTitle, widthTitle, heightTitle;
+float xFooter, yFooter, widthFooter, heightFooter;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
-//String ; //All text variables as name=value pairs
-//PFont ; //All fonts used
-//color ; //colour palette & inks
-int sizeFont, size; //Text Variables
 //
 PImage picBackground;
 //
@@ -19,8 +21,8 @@ void setup() {
   size(800,400);
   picBackground = loadImage("mountain-6086083_640.jpg");
   //
-  //fullScreen(); //displayWidth, displayHeight
-  size( 800, 600 ); //Landscape
+  //fullScreen();
+  size(800,400);
   appWidth = width;
   appHeight = height;
   //
@@ -34,6 +36,14 @@ void setup() {
   widthRectQuit = appWidth*1/2;
   heightRectQuit = appHeight*1/2;
   //Concatenation of Pathways
+  xTitle = appWidth*1/4;
+  yTitle = appHeight*1/10;
+  widthTitle = appWidth*1/2;
+  heightTitle= appHeight*2/10;
+  xFooter = xTitle;
+  yFooter = appHeight*7/10;
+  widthFooter = widthTitle;
+  heightFooter = heightTitle;
   String up = "..";
   String open = "/";
   String imagesPath = up + open;
@@ -51,8 +61,8 @@ void setup() {
   // Text Setup
   // Fonts from OS (Operating System)
   //String[] fontList = PFont.list(); //Lists all fonts available on OS
-  //printArray(fontList);
-  //[fontName] = createFont("[fontSpelling]", [startingFontSize]);
+  //printArray(fontList);1
+  titleFont = createFont("ForteMT", 55);
   //Verify the font exists in Processing.Java
   // Tools / Create Font / Find Font / Do not press "OK", known bug
   //
