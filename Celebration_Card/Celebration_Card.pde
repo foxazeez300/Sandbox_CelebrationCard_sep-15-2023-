@@ -2,7 +2,7 @@
 int appWidth, appHeight;
 String title="Happy Birthday";
 PFont titleFont;
-color purple=#2C08FF, resetDefaultInk=#FFFFFF;
+color resetDefaultInk=#FFFFFF;
 int sizeFont, size;
 float xTitle, yTitle, widthTitle, heightTitle;
 float xFooter, yFooter, widthFooter, heightFooter;
@@ -55,7 +55,7 @@ void setup() {
   //DIVs
   rect(backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
-  //rect(); //Image, foreground, near the top
+  rect( xTitle, yTitle, widthTitle, heightTitle ); //Image, foreground, near the top
   //rect(); //Copy and Paste this for all rect()s
   //
   // Text Setup
@@ -73,9 +73,10 @@ void draw() {
   //fill( [colourName] ); //ink
   textAlign( CENTER, CENTER ); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
-  //size = [pixelNumberFontSize]; //integer number
-  //textFont( [fontVariable], size ); // states which font to use
-  //text ( [textStringName], [four rect() variables copied from DIVs]);
+  size = 60; //integer number
+  textFont( titleFont, size ); // states which font to use
+  text ( title, xTitle, yTitle, widthTitle, heightTitle );
+  fill(resetDefaultInk); //ink
   image(picBackground, 0, 0);
   //
 } //End draw
