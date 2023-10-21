@@ -1,8 +1,8 @@
 //Global Variables
 int appWidth, appHeight;
-String title="Happy Birthday";
-PFont titleFont;
-color resetDefaultInk=#FFFFFF;
+String title="Happy Birthday", footer="drip";;
+PFont titleFont, footerFont;
+color purple=#2C08FF, resetDefaultInk=#FFFFFF, yellow = #E9FF00;
 int sizeFont, size;
 float xTitle, yTitle, widthTitle, heightTitle;
 float xFooter, yFooter, widthFooter, heightFooter;
@@ -63,22 +63,34 @@ void setup() {
   //String[] fontList = PFont.list(); //Lists all fonts available on OS
   //printArray(fontList);1
   titleFont = createFont("ForteMT", 55);
+  footerFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
   // Tools / Create Font / Find Font / Do not press "OK", known bug
   //
 } //End setup
 //
 void draw() {
-  //Drawing Text, copied for each line of text
-  //fill( [colourName] ); //ink
-  textAlign( CENTER, CENTER ); //Align X&Y, see Processing.org / Reference
-  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
-  size = 60; //integer number
-  textFont( titleFont, size ); // states which font to use
-  text ( title, xTitle, yTitle, widthTitle, heightTitle );
-  fill(resetDefaultInk); //ink
-  image(picBackground, 0, 0);
+  //background(255); //built in BUG, 1 pixel
+  rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   //
+  //Drawing Text, copied for each line of text
+  fill(purple); //ink
+  textAlign(CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  size = 60;
+  textFont(titleFont, size);
+  text ( title, xTitle, yTitle, widthTitle, heightTitle );
+  fill(yellow); //ink
+  textAlign(CENTER, TOP); //Align X&Y, see Processing.org / Reference
+  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  size = 120;
+  textFont(footerFont, size);
+  text ( footer, xFooter, yFooter, widthFooter, heightFooter );
+  fill(resetDefaultInk); //ink
+  //
+  //
+  //rect(  ); //Title: 
+  //rect(  ); //Footer:
 } //End draw
 //
 void keyPressed() {
