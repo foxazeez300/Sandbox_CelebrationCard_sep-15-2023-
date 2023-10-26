@@ -24,8 +24,7 @@ void setup() {
   size(800,400);
   picBackground = loadImage("mountain-6086083_640.jpg");
   //
-  //fullScreen();
-  size(800,400);
+  fullScreen();
   appWidth = width; //displayWidth
   appHeight = height; //displayHeight 
   //
@@ -95,13 +94,11 @@ void draw() {
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 60;
   textFont(titleFont, size);
-  text ( title, xTitle, yTitle, widthTitle, heightTitle );
   fill(yellow); //ink
   textAlign(CENTER, TOP); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 120;
   textFont(footerFont, size);
-  text ( footer, xFooter, yFooter, widthFooter, heightFooter );
   fill(resetDefaultInk); //ink
   //
   //
@@ -120,8 +117,7 @@ void draw() {
   }
   //if ( nightmode==true ) tint ( 64, 64, 40 ); //Gray Scale: 1/2 tint (i.e 128/256=1/2)
   if ( nightmode==true ) {
-    tint ( 64, 64, 40 ); //Blue Light must be limited, i.e. <40
-    //println(nightmode);
+  tint ( 90, 90, 70 ); //Blue Light must be limited, i.e. <40    //println(nightmode);
   } else {
     noTint(); //See Processing DOC
     //println(nightmode);
@@ -130,6 +126,8 @@ void draw() {
   image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect( xTitle, yTitle, widthTitle, heightTitle );
+  text ( title, xTitle, yTitle, widthTitle, heightTitle );
+  text ( footer, xFooter, yFooter, widthFooter, heightFooter );
   //rect(  ); //Title: 
   //rect(  ); //Footer:
 } //End draw
