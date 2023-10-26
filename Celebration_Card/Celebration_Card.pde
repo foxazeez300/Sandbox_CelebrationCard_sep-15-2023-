@@ -75,7 +75,7 @@ void setup() {
   // Fonts from OS (Operating System)
   //String[] fontList = PFont.list(); //Lists all fonts available on OS
   //printArray(fontList);1
-  titleFont = createFont("ForteMT", 55);
+  titleFont = createFont("Algerian", 55); //ForteMT
   footerFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
   //Tools / Create Font / Find Font / Do not press "OK", known bug
@@ -118,7 +118,7 @@ void draw() {
   }
   //if ( nightmode==true ) tint ( 64, 64, 40 ); //Gray Scale: 1/2 tint (i.e 128/256=1/2)
   if ( nightmode==true ) {
-  tint ( 90, 90, 70 ); //Blue Light must be limited, i.e. <40    //println(nightmode);
+  tint ( 60, 55, 40 ); //Blue Light must be limited, i.e. <40    //println(nightmode);
   } else {
     noTint(); //See Processing DOC
     //println(nightmode);
@@ -130,8 +130,6 @@ void draw() {
   //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( title, xTitle, yTitle, widthTitle, heightTitle );
   text ( footer, xFooter, yFooter, widthFooter, heightFooter );
-  //rect(  ); //Title: 
-  //rect(  ); //Footer:
 } //End draw
 //
 void keyPressed() {
