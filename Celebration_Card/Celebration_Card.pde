@@ -1,6 +1,6 @@
 //Global Variables
 int appWidth, appHeight;
-String title="Happy Birthday", footer="drip";
+String title="Happy Birthday", footer="description";
 PFont titleFont, footerFont;
 color purple=#2C08FF, resetDefaultInk=#FFFFFF, yellow = #E9FF00;
 int sizeFont, size;
