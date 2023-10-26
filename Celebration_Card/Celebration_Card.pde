@@ -86,6 +86,7 @@ void draw() {
   background(255); //built in BUG, 1 pixel
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  rect(xFooter, yFooter, widthFooter, heightFooter);
   rect( xTitle, yTitle, widthTitle, heightTitle );
   //
   //Drawing Text, copied for each line of text
@@ -124,8 +125,9 @@ void draw() {
   //
   }
   image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
-  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
-  rect( xTitle, yTitle, widthTitle, heightTitle );
+  //rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  //rect( xTitle, yTitle, widthTitle, heightTitle );
+  //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( title, xTitle, yTitle, widthTitle, heightTitle );
   text ( footer, xFooter, yFooter, widthFooter, heightFooter );
   //rect(  ); //Title: 
