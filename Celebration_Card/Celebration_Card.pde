@@ -23,8 +23,8 @@ void setup() {
   //
   //fullScreen();
   size(800,400);
-  appWidth = width;
-  appHeight = height;
+  appWidth = width; //displayWidth
+  appHeight = height; //displayHeight 
   //
   //Population
   backgroundImageX = appWidth*0;
