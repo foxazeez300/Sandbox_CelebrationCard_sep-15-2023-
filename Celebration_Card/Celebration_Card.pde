@@ -2,12 +2,15 @@
 int appWidth, appHeight;
 String title="Happy Birthday", footer="description";
 PFont titleFont, footerFont;
-color purple=#2C08FF, resetDefaultInk=#FFFFFF, yellow = #E9FF00;
+color resetDefaultInk=#FFFFFF, purple=#2C08FF, yellow = #E9FF00;
 int sizeFont, size;
 float xTitle, yTitle, widthTitle, heightTitle;
 float xFooter, yFooter, widthFooter, heightFooter;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
+Boolean nightmode=false; //Note: clock will automatically turn on
+Boolean brightnessControl=false; //Note: ARROWS
+int brightnessNumber=128; //Range:1-255
 //
 PImage picBackground;
 //
@@ -27,6 +30,16 @@ void setup() {
   appHeight = height; //displayHeight 
   //
   //Population
+  int hourNightMode = hour(); //24-hour clock
+  println(hourNightMode);
+  if ( hourNightMode>17 ) {
+    nightmode=true;
+  } else if ( hourNightMode<05 ) {
+    nightmode=true;
+  } else {
+    nightmode=false;
+  }
+  // DIV
   backgroundImageX = appWidth*0;
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
@@ -44,6 +57,7 @@ void setup() {
   yFooter = appHeight*7/10;
   widthFooter = widthTitle;
   heightFooter = heightTitle;
+  //
   String up = "..";
   String open = "/";
   String imagesPath = up + open;
@@ -65,13 +79,15 @@ void setup() {
   titleFont = createFont("ForteMT", 55);
   footerFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
-  // Tools / Create Font / Find Font / Do not press "OK", known bug
+  //Tools / Create Font / Find Font / Do not press "OK", known bug
   //
 } //End setup
 //
 void draw() {
-  //background(255); //built in BUG, 1 pixel
+  background(255); //built in BUG, 1 pixel
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  rect( xTitle, yTitle, widthTitle, heightTitle );
   //
   //Drawing Text, copied for each line of text
   fill(purple); //ink
@@ -89,11 +105,54 @@ void draw() {
   fill(resetDefaultInk); //ink
   //
   //
+  //println(brightnessControl, nightmode);
+  if ( brightnessControl==true )
+  { //Gray Scale: 1/2 tint (i.e 128/256=1/2)
+    if ( brightnessNumber<1 ) {
+      brightnessNumber=1;
+    } else if ( brightnessNumber>255 ) {
+      brightnessNumber=255;
+    } else {
+      //Empty ELSE
+    }
+    tint (255, brightnessNumber);
+    //println(brightnessNumber);
+  }
+  //if ( nightmode==true ) tint ( 64, 64, 40 ); //Gray Scale: 1/2 tint (i.e 128/256=1/2)
+  if ( nightmode==true ) {
+    tint ( 64, 64, 40 ); //Blue Light must be limited, i.e. <40
+    //println(nightmode);
+  } else {
+    noTint(); //See Processing DOC
+    //println(nightmode);
+  //
+  }
+  image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
+  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  rect( xTitle, yTitle, widthTitle, heightTitle );
   //rect(  ); //Title: 
   //rect(  ); //Footer:
 } //End draw
 //
 void keyPressed() {
+ if ( key=='n' || key=='N' ) { //Nightmode, basic control is Boolean
+    if ( nightmode==true ) {
+      nightmode = false;
+    } else {
+      nightmode = true;
+    }
+  }
+  //Brightness: ARROWS activate brightnessControl, never off
+  //NOTE: Nightmode does turn off
+  if ( key==CODED && keyCode==UP || keyCode==DOWN ) { //Brightness keybind
+    brightnessControl = true;
+    //Builtin BUG, use Boolean to draw() formulae instead
+    if ( key==CODED && keyCode==UP ) brightnessNumber++ ; //brightnessNumber+=1 //brightnessNumber = brightnessNumber+1
+    if ( key==CODED && keyCode==DOWN ) brightnessNumber-- ; //brightnessNumber-=1
+    //CONTINUE HERE with brightness toggles
+  }
+  //
+  println(brightnessNumber);
 } //End keyPressed
 //
 void mousePressed() {
