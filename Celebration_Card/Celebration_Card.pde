@@ -21,7 +21,7 @@ void setup() {
   println("Display Width: "+displayWidth, "\tDisplay Height: "+displayHeight);
   //Character Escapes, tab, new
   //
-  size(800,400);
+  //size(800,400);
   picBackground = loadImage("mountain-6086083_640.jpg");
   //
   fullScreen();
