@@ -1,7 +1,7 @@
 //Global Variables
 int appWidth, appHeight;
 String title="Happy Birthday", footer="description", Quit="Thank you";
-PFont titleFont, footerFont, QuitFont;
+PFont titleFont, footerFont, quitFont;
 color resetDefaultInk=#FFFFFF, purple=#2C08FF, yellow = #E9FF00;
 int sizeFont, size;
 float xTitle, yTitle, widthTitle, heightTitle;
@@ -83,7 +83,7 @@ void setup() {
   //printArray(fontList);1
   titleFont = createFont("Algerian", 55); //ForteMT
   footerFont = createFont("ArialMT", 55);
-  QuitFont = createFont("ArialMT", 55);
+  quitFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
   //Tools / Create Font / Find Font / Do not press "OK", known bug
   //
@@ -109,6 +109,11 @@ void draw() {
   size = 120;
   textFont(footerFont, size);
   fill(resetDefaultInk); //ink
+  textAlign(RIGHT, BOTTOM); //Align X&Y, see Processing.org / Reference
+  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  size = 60;
+  textFont(quitFont, size);
+  
   //
   //
   //println(brightnessControl, nightmode);
