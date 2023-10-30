@@ -1,13 +1,14 @@
 //Global Variables
 int appWidth, appHeight;
-String title="Happy Birthday", footer="description";
-PFont titleFont, footerFont;
+String title="Happy Birthday", footer="description", Quit="Thank you";
+PFont titleFont, footerFont, QuitFont;
 color resetDefaultInk=#FFFFFF, purple=#2C08FF, yellow = #E9FF00;
 int sizeFont, size;
 float xTitle, yTitle, widthTitle, heightTitle;
 float xFooter, yFooter, widthFooter, heightFooter;
+float xQuit, yQuit, widthQuit, heightQuit;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
-float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit;
+float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit, QuitR;
 Boolean nightmode=false; //Note: clock will automatically turn on
 Boolean brightnessControl=false; //Note: ARROWS
 int brightnessNumber=128; //Range:1-255
@@ -43,10 +44,10 @@ void setup() {
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
-  xRectQuit = appWidth*1/4;
-  yRectQuit = appHeight*1/4;
-  widthRectQuit = appWidth*1/2;
-  heightRectQuit = appHeight*1/2;
+  xRectQuit = appWidth*1/1.3;
+  yRectQuit = appHeight*1/1.20;
+  widthRectQuit = appWidth*1/8;
+  heightRectQuit = appHeight*1/9; 
   //Concatenation of Pathways
   xTitle = appWidth*1/4;
   yTitle = appHeight*1/10;
@@ -56,6 +57,10 @@ void setup() {
   yFooter = appHeight*7/10;
   widthFooter = widthTitle;
   heightFooter = heightTitle;
+  xQuit = appWidth*1/1.3;
+  yQuit = appHeight*1/1.20;
+  widthQuit = appWidth*1/8;
+  heightQuit = appHeight*1/9;
   //
   String up = "..";
   String open = "/";
@@ -69,6 +74,7 @@ void setup() {
   rect(backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect( xTitle, yTitle, widthTitle, heightTitle ); //Image, foreground, near the top
+  rect(xQuit, yQuit, widthQuit, heightQuit); //Quit botton's text
   //rect(); //Copy and Paste this for all rect()s
   //
   // Text Setup
@@ -77,6 +83,7 @@ void setup() {
   //printArray(fontList);1
   titleFont = createFont("Algerian", 55); //ForteMT
   footerFont = createFont("ArialMT", 55);
+  QuitFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
   //Tools / Create Font / Find Font / Do not press "OK", known bug
   //
@@ -88,6 +95,7 @@ void draw() {
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect(xFooter, yFooter, widthFooter, heightFooter);
   rect( xTitle, yTitle, widthTitle, heightTitle );
+  rect(xQuit, yQuit, widthQuit, heightQuit);
   //
   //Drawing Text, copied for each line of text
   fill(purple); //ink
@@ -125,11 +133,12 @@ void draw() {
   //
   }
   image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
-  //rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   //rect( xTitle, yTitle, widthTitle, heightTitle );
   //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( title, xTitle, yTitle, widthTitle, heightTitle );
   text ( footer, xFooter, yFooter, widthFooter, heightFooter );
+  text ( xQuit, yQuit, widthQuit, heightQuit );
 } //End draw
 //
 void keyPressed() {
