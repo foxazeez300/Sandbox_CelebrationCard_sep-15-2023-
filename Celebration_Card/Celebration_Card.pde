@@ -1,12 +1,12 @@
 //Global Variables
 int appWidth, appHeight;
-String title="Happy Birthday", footer="description", Quit="Thank you";
-PFont titleFont, footerFont, quitFont;
+String title="Happy Birthday", footer="description", cornor="Thanks";
+PFont titleFont, footerFont, cornorFont;
 color resetDefaultInk=#FFFFFF, purple=#2C08FF, yellow = #E9FF00;
 int sizeFont, size;
 float xTitle, yTitle, widthTitle, heightTitle;
 float xFooter, yFooter, widthFooter, heightFooter;
-float xQuit, yQuit, widthQuit, heightQuit;
+float xCornor, yCornor, widthCornor, heightCornor;
 float backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight;
 float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit, QuitR;
 Boolean nightmode=false; //Note: clock will automatically turn on
@@ -44,23 +44,27 @@ void setup() {
   backgroundImageY = appHeight*0;
   backgroundImageWidth = appWidth-1;
   backgroundImageHeight = appHeight-1;
+  //
   xRectQuit = appWidth*1/1.3;
   yRectQuit = appHeight*1/1.20;
   widthRectQuit = appWidth*1/8;
   heightRectQuit = appHeight*1/9; 
   //Concatenation of Pathways
+  //
   xTitle = appWidth*1/4;
   yTitle = appHeight*1/10;
   widthTitle = appWidth*1/2;
   heightTitle= appHeight*2/10;
+  //
   xFooter = xTitle;
   yFooter = appHeight*7/10;
   widthFooter = widthTitle;
   heightFooter = heightTitle;
-  xQuit = appWidth*1/1.3;
-  yQuit = appHeight*1/1.20;
-  widthQuit = appWidth*1/8;
-  heightQuit = appHeight*1/9;
+  //
+  xCornor = xRectQuit;
+  yCornor = yRectQuit;
+  widthCornor = widthRectQuit;
+  heightCornor = heightRectQuit;
   //
   String up = "..";
   String open = "/";
@@ -74,7 +78,7 @@ void setup() {
   rect(backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect( xTitle, yTitle, widthTitle, heightTitle ); //Image, foreground, near the top
-  rect(xQuit, yQuit, widthQuit, heightQuit); //Quit botton's text
+  rect(xCornor, yCornor, widthCornor, heightCornor); //Quit botton's text
   //rect(); //Copy and Paste this for all rect()s
   //
   // Text Setup
@@ -83,7 +87,7 @@ void setup() {
   //printArray(fontList);1
   titleFont = createFont("Algerian", 55); //ForteMT
   footerFont = createFont("ArialMT", 55);
-  quitFont = createFont("ArialMT", 55);
+  cornorFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
   //Tools / Create Font / Find Font / Do not press "OK", known bug
   //
@@ -95,11 +99,11 @@ void draw() {
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect(xFooter, yFooter, widthFooter, heightFooter);
   rect( xTitle, yTitle, widthTitle, heightTitle );
-  rect(xQuit, yQuit, widthQuit, heightQuit);
+  rect(xCornor, yCornor, widthCornor, heightCornor);
   //
   //Drawing Text, copied for each line of text
   fill(purple); //ink
-  textAlign(CENTER, CENTER); //Align X&Y, see Processing.org / Reference
+  textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 60;
   textFont(titleFont, size);
@@ -109,11 +113,12 @@ void draw() {
   size = 120;
   textFont(footerFont, size);
   fill(resetDefaultInk); //ink
-  textAlign(RIGHT, BOTTOM); //Align X&Y, see Processing.org / Reference
+  textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 60;
-  textFont(quitFont, size);
-  
+  textFont(cornorFont, size);
+  fill(127.5, 127.5, 127.5);
+  text("Thanks", 40, 360);
   //
   //
   //println(brightnessControl, nightmode);
@@ -143,7 +148,7 @@ void draw() {
   //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( title, xTitle, yTitle, widthTitle, heightTitle );
   text ( footer, xFooter, yFooter, widthFooter, heightFooter );
-  text ( xQuit, yQuit, widthQuit, heightQuit );
+  text ( cornor, xCornor, yCornor, widthCornor, heightCornor );
 } //End draw
 //
 void keyPressed() {
