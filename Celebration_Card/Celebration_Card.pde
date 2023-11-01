@@ -85,8 +85,7 @@ void setup() {
   // Fonts from OS (Operating System)
   //String[] fontList = PFont.list(); //Lists all fonts available on OS
   //printArray(fontList);1 Algerian
-  titleFont = createFont("ForteMT", 55); //ForteMT
-  //textFont("ForteMT");
+  titleFont = createFont("ForteMT", 48); //ForteMT
   footerFont = createFont("ArialMT", 55);
   cornorFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
