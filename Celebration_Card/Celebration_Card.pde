@@ -84,8 +84,9 @@ void setup() {
   // Text Setup
   // Fonts from OS (Operating System)
   //String[] fontList = PFont.list(); //Lists all fonts available on OS
-  //printArray(fontList);1
-  titleFont = createFont("Algerian", 55); //ForteMT
+  //printArray(fontList);1 Algerian
+  titleFont = createFont("ForteMT", 55); //ForteMT
+  //textFont("ForteMT");
   footerFont = createFont("ArialMT", 55);
   cornorFont = createFont("ArialMT", 55);
   //Verify the font exists in Processing.Java
@@ -107,18 +108,19 @@ void draw() {
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 60;
   textFont(titleFont, size);
+     text ( title, xTitle, yTitle, widthTitle, heightTitle );
   fill(yellow); //ink
-  textAlign(CENTER, TOP); //Align X&Y, see Processing.org / Reference
+   textAlign(CENTER, TOP); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 120;
   textFont(footerFont, size);
+    text ( footer, xFooter, yFooter, widthFooter, heightFooter );
   fill(resetDefaultInk); //ink
-  textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
+   textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 60;
   textFont(cornorFont, size);
-  fill(127.5, 127.5, 127.5);
-  text("Thanks", 40, 360);
+  text ( cornor, xCornor, yCornor, widthCornor, heightCornor );
   //
   //
   //println(brightnessControl, nightmode);
