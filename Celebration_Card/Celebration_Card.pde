@@ -110,24 +110,23 @@ void draw() {
   rect(xCornor, yCornor, widthCornor, heightCornor);
   //
   //Drawing Text, copied for each line of text
-  fill(purple); //ink
+  fill(resetDefaultInk); //ink
   textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 60;
   textFont(titleFont, size);
      text ( title, xTitle, yTitle, widthTitle, heightTitle );
-  fill(yellow); //ink
+  fill(resetDefaultInk); //ink
    textAlign(CENTER, TOP); //Align X&Y, see Processing.org / Reference
   //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
   size = 120;
   textFont(footerFont, size);
     text ( footer, xFooter, yFooter, widthFooter, heightFooter );
-  fill(resetDefaultInk); //ink
-   textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
-  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  fill(resetDefaultInk); // ink
+  textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(cornorFont, size);
-  text ( cornor, xCornor, yCornor, widthCornor, heightCornor );
+  text("Thanks", xCornor, yCornor, widthCornor, heightCornor);
   //
   //
   //println(brightnessControl, nightmode);
