@@ -1,6 +1,14 @@
+//Library: use sketch / import
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+//
 //Global Variables
 int appWidth, appHeight;
-String title="Happy Birthday", footer="description", cornor="Thanks";
+String title="Merry Christmas", footer="description", cornor="Thanks";
 PFont titleFont, footerFont, cornorFont;
 color resetDefaultInk=#FFFFFF, purple=#2C08FF, yellow = #E9FF00;
 int sizeFont, size;
