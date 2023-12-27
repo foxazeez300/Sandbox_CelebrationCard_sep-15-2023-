@@ -60,9 +60,9 @@ void setup() {
   //Concatenation of Pathways
   //
   xTitle = appWidth*1/4;
-  yTitle = appHeight*1/10;
+  yTitle = appHeight*1/50;
   widthTitle = appWidth*1/2;
-  heightTitle= appHeight*2/10;
+  heightTitle= appHeight*1/10;
   //
   xFooter = xTitle;
   yFooter = appHeight*7/10;
@@ -102,6 +102,7 @@ void setup() {
 } //End setup
 //
 void draw() {
+  
   background(255); //built in BUG, 1 pixel
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
@@ -110,19 +111,22 @@ void draw() {
   rect(xCornor, yCornor, widthCornor, heightCornor);
   //
   //Drawing Text, copied for each line of text
-  fill(resetDefaultInk); //ink
-  textAlign(CENTER, BOTTOM); //Align X&Y, see Processing.org / Reference
-  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  // Drawing Title text
+  fill(purple); // ink color for title
+  textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(titleFont, size);
-     text ( title, xTitle, yTitle, widthTitle, heightTitle );
-  fill(resetDefaultInk); //ink
-   textAlign(CENTER, TOP); //Align X&Y, see Processing.org / Reference
-  //Values: [ LEFT | CENTER | RIGHT ] & [ TOP | CENTER | BOTTOM | BASELINE ]
+  text(title, xTitle, yTitle, widthTitle, heightTitle);
+
+  // Drawing Footer text
+  fill(yellow); // ink color for footer
+  textAlign(CENTER, TOP);
   size = 120;
   textFont(footerFont, size);
-    text ( footer, xFooter, yFooter, widthFooter, heightFooter );
-  fill(resetDefaultInk); // ink
+  text(footer, xFooter, yFooter, widthFooter, heightFooter);
+
+  // Drawing Cornor (Thanks) text
+  fill(0); // black color for "Thanks"
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(cornorFont, size);
@@ -151,7 +155,7 @@ void draw() {
   //
   }
   image(picBackground, backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
-  rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
+  //rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   //rect( xTitle, yTitle, widthTitle, heightTitle );
   //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( title, xTitle, yTitle, widthTitle, heightTitle );
