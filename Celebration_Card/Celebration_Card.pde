@@ -8,7 +8,7 @@ import ddf.minim.ugens.*;
 //
 //Global Variables
 int appWidth, appHeight;
-String title="Merry Christmas", cornor="Thanks";
+String Title="Merry Christmas", Cornor="Thanks";
 PFont titleFont, footerFont, cornorFont;
 color resetDefaultInk=#FFFFFF;
 int sizeFont, size;
@@ -118,7 +118,7 @@ void draw() {
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(titleFont, size);
-  text(title, xTitle, yTitle, widthTitle, heightTitle);
+  text(Title, xTitle, yTitle, widthTitle, heightTitle);
 
   // Drawing Footer text
   fill(0); // ink color for footer
@@ -134,7 +134,7 @@ void draw() {
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(cornorFont, size);
-  text("Thanks", xCornor, yCornor, widthCornor, heightCornor);
+  text(Cornor, xCornor, yCornor, widthCornor, heightCornor);
   //
   //
   //println(brightnessControl, nightmode);
@@ -162,9 +162,9 @@ void draw() {
   //rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   //rect( xTitle, yTitle, widthTitle, heightTitle );
   //rect( xFooter, yFooter, widthFooter, heightFooter );
-  text ( title, xTitle, yTitle, widthTitle, heightTitle );
+  text ( Title, xTitle, yTitle, widthTitle, heightTitle );
   text ( footer, xFooter, yFooter, widthFooter, heightFooter );
-  text ( cornor, xCornor, yCornor, widthCornor, heightCornor );
+  text ( Cornor, xCornor, yCornor, widthCornor, heightCornor );
 } //End draw
 //
 void keyPressed() {
