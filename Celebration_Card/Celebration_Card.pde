@@ -8,9 +8,9 @@ import ddf.minim.ugens.*;
 //
 //Global Variables
 int appWidth, appHeight;
-String title="Merry Christmas", footer="description", cornor="Thanks";
+String title="Merry Christmas", cornor="Thanks";
 PFont titleFont, footerFont, cornorFont;
-color resetDefaultInk=#FFFFFF, purple=#2C08FF, yellow = #E9FF00;
+color resetDefaultInk=#FFFFFF;
 int sizeFont, size;
 float xTitle, yTitle, widthTitle, heightTitle;
 float xFooter, yFooter, widthFooter, heightFooter;
@@ -54,10 +54,9 @@ void setup() {
   backgroundImageHeight = appHeight-1;
   //
   xRectQuit = appWidth*1/1.3;
-  yRectQuit = appHeight*1/1.20;
+  yRectQuit = appHeight*1/1.3;
   widthRectQuit = appWidth*1/8;
   heightRectQuit = appHeight*1/9; 
-  //Concatenation of Pathways
   //
   xTitle = appWidth*1/4;
   yTitle = appHeight*1/50;
@@ -65,7 +64,7 @@ void setup() {
   heightTitle= appHeight*1/10;
   //
   xFooter = xTitle;
-  yFooter = appHeight*7/10;
+  yFooter = appHeight*2/10;
   widthFooter = widthTitle;
   heightFooter = heightTitle;
   //
@@ -76,11 +75,14 @@ void setup() {
   //
   String up = "..";
   String open = "/";
-  String imagesPath = up + open;
+  String Pathway = up + open;
   String landScapeImage = "imagesUsed/Landscape & Square Images/";
+  String SongPath = "songsUsed/";
+  String Backgroundsong = "85209__milton__mini-christmas-song.mp3";
   String BackgroundImage = "mountain-6086083_640.jpg";
-  println(imagesPath + landScapeImage + BackgroundImage);
-  picBackground = loadImage( imagesPath + landScapeImage + BackgroundImage);
+  println(Pathway + landScapeImage + BackgroundImage);
+  println(Pathway + SongPath + Backgroundsong);
+  picBackground = loadImage( Pathway + landScapeImage + BackgroundImage);
   //
   //DIVs
   rect(backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
@@ -112,21 +114,23 @@ void draw() {
   //
   //Drawing Text, copied for each line of text
   // Drawing Title text
-  fill(purple); // ink color for title
+  fill(0); // ink color for title
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(titleFont, size);
   text(title, xTitle, yTitle, widthTitle, heightTitle);
 
   // Drawing Footer text
-  fill(yellow); // ink color for footer
+  fill(0); // ink color for footer
   textAlign(CENTER, TOP);
-  size = 120;
+  size = 60;
   textFont(footerFont, size);
-  text(footer, xFooter, yFooter, widthFooter, heightFooter);
-
+  String footer = "Dear Hudson,Merry Christmas, bro! Time to give props to the holiday maestro— you! Your festive vibes, the inside jokes, and the way you make every day feel like a holiday party are legit. Here's to the guy who turns tinsel into treasure and brings joy to every ho-ho-home. Wishing you the merriest Christmas and an epic New Year filled with good vibes! Cheers,";
+  //text(footer, xFooter, yFooter, widthFooter, heightFooter);
+  text(footer, 40, 40, 280, 320);
+  
   // Drawing Cornor (Thanks) text
-  fill(0); // black color for "Thanks"
+  fill(resetDefaultInk); // black color for "Thanks"
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(cornorFont, size);
