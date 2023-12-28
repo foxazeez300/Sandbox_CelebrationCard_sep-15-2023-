@@ -125,9 +125,21 @@ void draw() {
   textAlign(CENTER, TOP);
   size = 60;
   textFont(footerFont, size);
-  String footer = "Dear Hudson,Merry Christmas, bro! Time to give props to the holiday maestro— you! Your festive vibes, the inside jokes, and the way you make every day feel like a holiday party are legit. Here's to the guy who turns tinsel into treasure and brings joy to every ho-ho-home. Wishing you the merriest Christmas and an epic New Year filled with good vibes! Cheers,";
-  //text(footer, xFooter, yFooter, widthFooter, heightFooter);
-  text(footer, 40, 40, 280, 320);
+  // New essay lines
+  String line1 = "Dear Hudson,";
+  String line2 = "Merry Christmas, bro! Time to give props to the holiday maestro— you!";
+  String line3 = "Your festive vibes, the inside jokes, and the way you make every day feel like a holiday party are legit.";
+  String line4 = "Here's to the guy who turns tinsel into treasure and brings joy to every ho-ho-home.";
+  String line5 = "Wishing you the merriest Christmas and an epic New Year filled with good vibes!";
+  String line6 = "Cheers,";
+
+  text(line1, xFooter, yFooter - 40, widthFooter, heightFooter);
+  text(line2, xFooter, yFooter + 40, widthFooter, heightFooter);
+  text(line3, xFooter, yFooter + 80, widthFooter, heightFooter);
+  text(line4, xFooter, yFooter + 120, widthFooter, heightFooter);
+  text(line5, xFooter, yFooter + 160, widthFooter, heightFooter);
+  text(line6, xFooter, yFooter + 200, widthFooter, heightFooter);
+
   
   // Drawing Cornor (Thanks) text
   fill(resetDefaultInk); // black color for "Thanks"
@@ -163,7 +175,14 @@ void draw() {
   //rect( xTitle, yTitle, widthTitle, heightTitle );
   //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( Title, xTitle, yTitle, widthTitle, heightTitle );
-  text ( footer, xFooter, yFooter, widthFooter, heightFooter );
+  //
+  text(line1, xFooter, yFooter - 40, widthFooter, heightFooter);
+  text(line2, xFooter, yFooter + 40, widthFooter, heightFooter);
+  text(line3, xFooter, yFooter + 100, widthFooter, heightFooter);
+  text(line4, xFooter, yFooter + 170, widthFooter, heightFooter);
+  text(line5, xFooter, yFooter + 230, widthFooter, heightFooter);
+  text(line6, xFooter, yFooter + 300, widthFooter, heightFooter);
+  //
   text ( Cornor, xCornor, yCornor, widthCornor, heightCornor );
 } //End draw
 //
