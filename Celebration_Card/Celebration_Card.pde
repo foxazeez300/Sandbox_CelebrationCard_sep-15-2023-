@@ -142,7 +142,7 @@ void draw() {
 
   
   // Drawing Cornor (Thanks) text
-  fill(resetDefaultInk); // black color for "Thanks"
+  fill(0); // black color for "Thanks"
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(cornorFont, size);
