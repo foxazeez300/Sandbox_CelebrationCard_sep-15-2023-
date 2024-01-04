@@ -7,6 +7,8 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
 //Global Variables
+Minim minim;
+AudioPlayer player;
 int appWidth, appHeight;
 String Title="Merry Christmas", Cornor="Thanks";
 PFont titleFont, footerFont, cornorFont;
@@ -20,7 +22,6 @@ float xRectQuit, yRectQuit, widthRectQuit, heightRectQuit, QuitR;
 Boolean nightmode=false; //Note: clock will automatically turn on
 Boolean brightnessControl=false; //Note: ARROWS
 int brightnessNumber=128; //Range:1-255
-//
 PImage picBackground;
 //
 void setup() {
@@ -63,9 +64,9 @@ void setup() {
   widthTitle = appWidth*1/2;
   heightTitle= appHeight*1/10;
   //
-  xFooter = xTitle;
+  xFooter = appWidth*0; //xTitle*1/8
   yFooter = appHeight*2/10;
-  widthFooter = widthTitle;
+  widthFooter = widthTitle*2;
   heightFooter = heightTitle;
   //
   xCornor = xRectQuit;
@@ -95,12 +96,17 @@ void setup() {
   // Fonts from OS (Operating System)
   //String[] fontList = PFont.list(); //Lists all fonts available on OS
   //printArray(fontList);1 Algerian
-  titleFont = createFont("ForteMT", 48); //ForteMT
-  footerFont = createFont("ArialMT", 55);
-  cornorFont = createFont("ArialMT", 55);
+  String[] fontList = PFont.list();
+  printArray(fontList);
+  titleFont = createFont("Times New Roman Bold", 48); 
+  footerFont = createFont("Times New Roman Bold", 30);
+  cornorFont = createFont("Times New Roman Bold", 30);
   //Verify the font exists in Processing.Java
   //Tools / Create Font / Find Font / Do not press "OK", known bug
   //
+  //minim = new Minim(this);
+  //player = minim.loadFile("85209__milton__mini-christmas-song.mp3");
+  //player.play();
 } //End setup
 //
 void draw() {
@@ -109,7 +115,7 @@ void draw() {
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect(xFooter, yFooter, widthFooter, heightFooter);
-  rect( xTitle, yTitle, widthTitle, heightTitle );
+  rect(xTitle, yTitle, widthTitle, heightTitle);
   rect(xCornor, yCornor, widthCornor, heightCornor);
   //
   //Drawing Text, copied for each line of text
@@ -126,23 +132,36 @@ void draw() {
   size = 60;
   textFont(footerFont, size);
   // New essay lines
-  String line1 = "Dear Hudson,";
-  String line2 = "Merry Christmas, bro! Time to give props to the holiday maestro— you!";
-  String line3 = "Your festive vibes, the inside jokes, and the way you make every day feel like a holiday party are legit.";
-  String line4 = "Here's to the guy who turns tinsel into treasure and brings joy to every ho-ho-home.";
-  String line5 = "Wishing you the merriest Christmas and an epic New Year filled with good vibes!";
-  String line6 = "Cheers,";
+  String line1a = "Dear Hudson,";
+String line1b = "Wishing you a Merry Christmas!";
+String line2a = "Bro, it's time to give props";
+String line2b = "to the holiday maestro—you!";
+String line3a = "Your festive vibes, inside jokes,";
+String line3b = "make every day feel like a holiday.";
+String line4a = "Here's to the guy who turns tinsel";
+String line4b = "into treasure, bringing joy to every ho-ho-home.";
+String line5 = "Wishing you the merriest Christmas and";
+String line6 = "an epic New Year filled with good vibes!";
+String line7 = "Cheers,";
 
-  text(line1, xFooter, yFooter - 40, widthFooter, heightFooter);
-  text(line2, xFooter, yFooter + 40, widthFooter, heightFooter);
-  text(line3, xFooter, yFooter + 80, widthFooter, heightFooter);
-  text(line4, xFooter, yFooter + 120, widthFooter, heightFooter);
-  text(line5, xFooter, yFooter + 160, widthFooter, heightFooter);
-  text(line6, xFooter, yFooter + 200, widthFooter, heightFooter);
+text(line1a, xFooter, yFooter - 60, widthFooter, heightFooter);
+text(line1b, xFooter, yFooter - 20, widthFooter, heightFooter);
+text(line2a, xFooter, yFooter + 40, widthFooter, heightFooter);
+text(line2b, xFooter, yFooter + 80, widthFooter, heightFooter);
+text(line3a, xFooter, yFooter + 160, widthFooter, heightFooter);
+text(line3b, xFooter, yFooter + 200, widthFooter, heightFooter);
+text(line4a, xFooter, yFooter + 320, widthFooter, heightFooter);
+text(line4b, xFooter, yFooter + 360, widthFooter, heightFooter);
+text(line5, xFooter, yFooter + 480, widthFooter, heightFooter);
+text(line6, xFooter, yFooter + 520, widthFooter, heightFooter);
+text(line7, xFooter, yFooter + 640, widthFooter, heightFooter);
 
-  
+  //if (!player.isPlaying()) {
+   // player.rewind();
+   // player.play();
+ // }
   // Drawing Cornor (Thanks) text
-  fill(0); // black color for "Thanks"
+  fill(resetDefaultInk); // black color for "Thanks"
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(cornorFont, size);
@@ -176,14 +195,20 @@ void draw() {
   //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( Title, xTitle, yTitle, widthTitle, heightTitle );
   //
-  text(line1, xFooter, yFooter - 40, widthFooter, heightFooter);
-  text(line2, xFooter, yFooter + 40, widthFooter, heightFooter);
-  text(line3, xFooter, yFooter + 100, widthFooter, heightFooter);
-  text(line4, xFooter, yFooter + 170, widthFooter, heightFooter);
-  text(line5, xFooter, yFooter + 230, widthFooter, heightFooter);
-  text(line6, xFooter, yFooter + 300, widthFooter, heightFooter);
+ text(line1a, xFooter, yFooter - 60, widthFooter, heightFooter);
+text(line1b, xFooter, yFooter - 20, widthFooter, heightFooter);
+text(line2a, xFooter, yFooter + 40, widthFooter, heightFooter);
+text(line2b, xFooter, yFooter + 80, widthFooter, heightFooter);
+text(line3a, xFooter, yFooter + 160, widthFooter, heightFooter);
+text(line3b, xFooter, yFooter + 200, widthFooter, heightFooter);
+text(line4a, xFooter, yFooter + 320, widthFooter, heightFooter);
+text(line4b, xFooter, yFooter + 360, widthFooter, heightFooter);
+text(line5, xFooter, yFooter + 480, widthFooter, heightFooter);
+text(line6, xFooter, yFooter + 520, widthFooter, heightFooter);
+text(line7, xFooter, yFooter + 640, widthFooter, heightFooter);
   //
   text ( Cornor, xCornor, yCornor, widthCornor, heightCornor );
+  //
 } //End draw
 //
 void keyPressed() {
