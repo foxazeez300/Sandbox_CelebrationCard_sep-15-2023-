@@ -64,8 +64,8 @@ void setup() {
   widthTitle = appWidth*1/2;
   heightTitle= appHeight*1/10;
   //
-  xFooter = appWidth*0; //xTitle*1/8
-  yFooter = appHeight*2/10;
+  xFooter = appWidth*0; 
+  yFooter = appHeight*1/9;
   widthFooter = widthTitle*2;
   heightFooter = heightTitle;
   //
@@ -144,17 +144,19 @@ String line5 = "Wishing you the merriest Christmas and";
 String line6 = "an epic New Year filled with good vibes!";
 String line7 = "Cheers,";
 
-text(line1a, xFooter, yFooter - 60, widthFooter, heightFooter);
-text(line1b, xFooter, yFooter - 20, widthFooter, heightFooter);
-text(line2a, xFooter, yFooter + 40, widthFooter, heightFooter);
-text(line2b, xFooter, yFooter + 80, widthFooter, heightFooter);
-text(line3a, xFooter, yFooter + 160, widthFooter, heightFooter);
-text(line3b, xFooter, yFooter + 200, widthFooter, heightFooter);
-text(line4a, xFooter, yFooter + 320, widthFooter, heightFooter);
-text(line4b, xFooter, yFooter + 360, widthFooter, heightFooter);
-text(line5, xFooter, yFooter + 480, widthFooter, heightFooter);
-text(line6, xFooter, yFooter + 520, widthFooter, heightFooter);
-text(line7, xFooter, yFooter + 640, widthFooter, heightFooter);
+float gapSize = 55; // Adjust the desired gap size
+
+text(line1a, xFooter, yFooter + 0 * gapSize, widthFooter, heightFooter);
+text(line1b, xFooter, yFooter + 1 * gapSize, widthFooter, heightFooter);
+text(line2a, xFooter, yFooter + 2 * gapSize, widthFooter, heightFooter);
+text(line2b, xFooter, yFooter + 3 * gapSize, widthFooter, heightFooter);
+text(line3a, xFooter, yFooter + 4 * gapSize, widthFooter, heightFooter);
+text(line3b, xFooter, yFooter + 5 * gapSize, widthFooter, heightFooter);
+text(line4a, xFooter, yFooter + 6 * gapSize, widthFooter, heightFooter);
+text(line4b, xFooter, yFooter + 7 * gapSize, widthFooter, heightFooter);
+text(line5, xFooter, yFooter + 8 * gapSize, widthFooter, heightFooter);
+text(line6, xFooter, yFooter + 9 * gapSize, widthFooter, heightFooter);
+text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
 
   //if (!player.isPlaying()) {
    // player.rewind();
@@ -195,19 +197,19 @@ text(line7, xFooter, yFooter + 640, widthFooter, heightFooter);
   //rect( xFooter, yFooter, widthFooter, heightFooter );
   text ( Title, xTitle, yTitle, widthTitle, heightTitle );
   //
- text(line1a, xFooter, yFooter - 60, widthFooter, heightFooter);
-text(line1b, xFooter, yFooter - 20, widthFooter, heightFooter);
-text(line2a, xFooter, yFooter + 40, widthFooter, heightFooter);
-text(line2b, xFooter, yFooter + 80, widthFooter, heightFooter);
-text(line3a, xFooter, yFooter + 160, widthFooter, heightFooter);
-text(line3b, xFooter, yFooter + 200, widthFooter, heightFooter);
-text(line4a, xFooter, yFooter + 320, widthFooter, heightFooter);
-text(line4b, xFooter, yFooter + 360, widthFooter, heightFooter);
-text(line5, xFooter, yFooter + 480, widthFooter, heightFooter);
-text(line6, xFooter, yFooter + 520, widthFooter, heightFooter);
-text(line7, xFooter, yFooter + 640, widthFooter, heightFooter);
+ text(line1a, xFooter, yFooter + 0 * gapSize, widthFooter, heightFooter);
+text(line1b, xFooter, yFooter + 1 * gapSize, widthFooter, heightFooter);
+text(line2a, xFooter, yFooter + 2 * gapSize, widthFooter, heightFooter);
+text(line2b, xFooter, yFooter + 3 * gapSize, widthFooter, heightFooter);
+text(line3a, xFooter, yFooter + 4 * gapSize, widthFooter, heightFooter);
+text(line3b, xFooter, yFooter + 5 * gapSize, widthFooter, heightFooter);
+text(line4a, xFooter, yFooter + 6 * gapSize, widthFooter, heightFooter);
+text(line4b, xFooter, yFooter + 7 * gapSize, widthFooter, heightFooter);
+text(line5, xFooter, yFooter + 8 * gapSize, widthFooter, heightFooter);
+text(line6, xFooter, yFooter + 9 * gapSize, widthFooter, heightFooter);
+text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
   //
-  text ( Cornor, xCornor, yCornor, widthCornor, heightCornor );
+text ( Cornor, xCornor, yCornor, widthCornor, heightCornor );
   //
 } //End draw
 //
