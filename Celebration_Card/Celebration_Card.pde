@@ -163,7 +163,7 @@ text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
    // player.play();
  // }
   // Drawing Cornor (Thanks) text
-  fill(resetDefaultInk); // black color for "Thanks"
+  fill(#C1C1C1); // black color for "Thanks"
   textAlign(CENTER, BOTTOM);
   size = 60;
   textFont(cornorFont, size);
