@@ -60,7 +60,7 @@ void setup() {
   heightRectQuit = appHeight*1/9; 
   //
   xTitle = appWidth*1/4;
-  yTitle = appHeight*1/50;
+  yTitle = appHeight*1/100;
   widthTitle = appWidth*1/2;
   heightTitle= appHeight*1/10;
   //
@@ -77,25 +77,34 @@ void setup() {
   String up = "..";
   String open = "/";
   String Pathway = up + open;
-  String landScapeImage = "imagesUsed/Landscape & Square Images/";
-  String SongPath = "songsUsed/";
-  String Backgroundsong = "85209__milton__mini-christmas-song.mp3";
+  String landScapeImage = "imagesUsed/";
   String BackgroundImage = "mountain-6086083_640.jpg";
   println(Pathway + landScapeImage + BackgroundImage);
-  println(Pathway + SongPath + Backgroundsong);
+  //println(Pathway + SongPath + Backgroundsong);
   picBackground = loadImage( Pathway + landScapeImage + BackgroundImage);
   //
+  //println("Attempting to load music file: " + musicFilePath);
+
+minim = new Minim(this);
+  String songPath = "songsUsed/";
+  String backgroundSong = "85209__milton__mini-christmas-song.mp3";
+  String musicFilePath = songPath + backgroundSong;
+  
+  try {
+    player = minim.loadFile(musicFilePath);
+    player.play();  // Start playing the song
+  } catch (Exception e) {
+    println("Error loading music file: " + e.getMessage());
+    e.printStackTrace();
+  }
+
+  println("Attempting to load music file: " + musicFilePath);
   //DIVs
   rect(backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
   rect( xTitle, yTitle, widthTitle, heightTitle ); //Image, foreground, near the top
   rect(xCornor, yCornor, widthCornor, heightCornor); //Quit botton's text
-  //rect(); //Copy and Paste this for all rect()s
   //
-  // Text Setup
-  // Fonts from OS (Operating System)
-  //String[] fontList = PFont.list(); //Lists all fonts available on OS
-  //printArray(fontList);1 Algerian
   String[] fontList = PFont.list();
   printArray(fontList);
   titleFont = createFont("Times New Roman Bold", 48); 
@@ -105,7 +114,7 @@ void setup() {
   //Tools / Create Font / Find Font / Do not press "OK", known bug
   //
   //minim = new Minim(this);
-  //player = minim.loadFile("85209__milton__mini-christmas-song.mp3");
+  //player = minim.loadFile("songsUsed/85209__milton__mini-christmas-song.mp3");
   //player.play();
 } //End setup
 //
@@ -158,10 +167,12 @@ text(line5, xFooter, yFooter + 8 * gapSize, widthFooter, heightFooter);
 text(line6, xFooter, yFooter + 9 * gapSize, widthFooter, heightFooter);
 text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
 
-  //if (!player.isPlaying()) {
-   // player.rewind();
-   // player.play();
- // }
+ if (player != null && player.isPlaying()) {
+  // Add print statements to identify issues
+  println("Before player.isPlaying check");
+  println("Is player playing? " + player.isPlaying());
+  println("After player.isPlaying check");
+ }
   // Drawing Cornor (Thanks) text
   fill(#C1C1C1); // black color for "Thanks"
   textAlign(CENTER, BOTTOM);
