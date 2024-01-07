@@ -9,6 +9,7 @@ import ddf.minim.ugens.*;
 //Global Variables
 Minim minim;
 AudioPlayer player;
+String musicFilePath;
 int appWidth, appHeight;
 String Title="Merry Christmas", Cornor="Thanks";
 PFont titleFont, footerFont, cornorFont;
@@ -84,20 +85,9 @@ void setup() {
   picBackground = loadImage( Pathway + landScapeImage + BackgroundImage);
   //
   //println("Attempting to load music file: " + musicFilePath);
-
-minim = new Minim(this);
-  String songPath = "songsUsed/";
-  String backgroundSong = "85209__milton__mini-christmas-song.mp3";
-  String musicFilePath = songPath + backgroundSong;
-  
-  try {
-    player = minim.loadFile(musicFilePath);
-    player.play();  // Start playing the song
-  } catch (Exception e) {
-    println("Error loading music file: " + e.getMessage());
-    e.printStackTrace();
-  }
-
+  println("Initializing setup...");
+  initializeMinim();
+  println("Setup complete.");
   println("Attempting to load music file: " + musicFilePath);
   //DIVs
   rect(backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight);
@@ -105,19 +95,29 @@ minim = new Minim(this);
   rect( xTitle, yTitle, widthTitle, heightTitle ); //Image, foreground, near the top
   rect(xCornor, yCornor, widthCornor, heightCornor); //Quit botton's text
   //
-  String[] fontList = PFont.list();
-  printArray(fontList);
+  //String[] fontList = PFont.list();
+  //printArray(fontList);
   titleFont = createFont("Times New Roman Bold", 48); 
   footerFont = createFont("Times New Roman Bold", 30);
   cornorFont = createFont("Times New Roman Bold", 30);
   //Verify the font exists in Processing.Java
   //Tools / Create Font / Find Font / Do not press "OK", known bug
-  //
-  //minim = new Minim(this);
-  //player = minim.loadFile("songsUsed/85209__milton__mini-christmas-song.mp3");
-  //player.play();
 } //End setup
 //
+void initializeMinim() {
+  minim = new Minim(this);
+  String songPath = "songsUsed/";
+  String backgroundSong = "85209__milton__mini-christmas-song.mp3";
+  musicFilePath = sketchPath("songsUsed/" + backgroundSong).replace("\\", "/");
+
+  try {
+    player = minim.loadFile(musicFilePath);
+    player.play();  // Start playing the song
+  } catch (Exception e) {
+    println("Error loading music file: " + e.getMessage());
+    e.printStackTrace();
+  }
+}
 void draw() {
   
   background(255); //built in BUG, 1 pixel
