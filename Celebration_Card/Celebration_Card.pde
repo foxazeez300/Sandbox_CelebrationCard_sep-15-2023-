@@ -106,20 +106,34 @@ void setup() {
 //
 void initializeMinim() {
   minim = new Minim(this);
-  String songPath = "songsUsed/";
+  //String songPath = "songsUsed/";
   String backgroundSong = "85209__milton__mini-christmas-song.mp3";
   musicFilePath = sketchPath("songsUsed/" + backgroundSong).replace("\\", "/");
 
   try {
     player = minim.loadFile(musicFilePath);
-    player.play();  // Start playing the song
+    player.loop();  // Enable looping
   } catch (Exception e) {
     println("Error loading music file: " + e.getMessage());
     e.printStackTrace();
   }
 }
+String myName = "Azeez Alaboosi";
+String myEmail = "a.al-aboosi@share.epsb.ca";
+void drawContactSection() {
+  fill(0); // Set text color to black
+  textAlign(CENTER, CENTER);
+
+  // Display your name
+  textSize(24);
+  text("Name: " + myName, width / 2, height - 100);
+
+  // Display your email
+  textSize(18);
+  text("Email: " + myEmail, width / 2, height - 70);
+}
+String keyBindsInfo = "Key Binds:\nN - Toggle Nightmode\nUP/DOWN ARROWS - Adjust Brightness";
 void draw() {
-  
   background(255); //built in BUG, 1 pixel
   rect( backgroundImageX, backgroundImageY, backgroundImageWidth, backgroundImageHeight );
   rect(xRectQuit, yRectQuit, widthRectQuit, heightRectQuit);
@@ -152,9 +166,8 @@ String line4b = "into treasure, bringing joy to every ho-ho-home.";
 String line5 = "Wishing you the merriest Christmas and";
 String line6 = "an epic New Year filled with good vibes!";
 String line7 = "Cheers,";
-
+//
 float gapSize = 55; // Adjust the desired gap size
-
 text(line1a, xFooter, yFooter + 0 * gapSize, widthFooter, heightFooter);
 text(line1b, xFooter, yFooter + 1 * gapSize, widthFooter, heightFooter);
 text(line2a, xFooter, yFooter + 2 * gapSize, widthFooter, heightFooter);
@@ -166,7 +179,6 @@ text(line4b, xFooter, yFooter + 7 * gapSize, widthFooter, heightFooter);
 text(line5, xFooter, yFooter + 8 * gapSize, widthFooter, heightFooter);
 text(line6, xFooter, yFooter + 9 * gapSize, widthFooter, heightFooter);
 text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
-
  if (player != null && player.isPlaying()) {
   // Add print statements to identify issues
   println("Before player.isPlaying check");
@@ -180,8 +192,6 @@ text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
   textFont(cornorFont, size);
   text(Cornor, xCornor, yCornor, widthCornor, heightCornor);
   //
-  //
-  //println(brightnessControl, nightmode);
   if ( brightnessControl==true )
   { //Gray Scale: 1/2 tint (i.e 128/256=1/2)
     if ( brightnessNumber<1 ) {
@@ -222,6 +232,7 @@ text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
   //
 text ( Cornor, xCornor, yCornor, widthCornor, heightCornor );
   //
+ drawContactSection();
 } //End draw
 //
 void keyPressed() {
