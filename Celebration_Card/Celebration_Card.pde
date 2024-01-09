@@ -185,6 +185,17 @@ text(line7, xFooter, yFooter + 10 * gapSize, widthFooter, heightFooter);
   println("Is player playing? " + player.isPlaying());
   println("After player.isPlaying check");
  }
+fill(0); // ink color for key binds
+  textAlign(LEFT, TOP);
+  size = 20;
+  textFont(footerFont, size);
+  
+  String keyBindsInfo = "Key Binds:\n";
+  keyBindsInfo += "N: Toggle Night Mode\n";
+  keyBindsInfo += "UP/DOWN ARROW: Adjust Brightness\n";
+  keyBindsInfo += "ESC: Quit";
+
+  text(keyBindsInfo, 20, 20, widthFooter, heightFooter);
   // Drawing Cornor (Thanks) text
   fill(#C1C1C1); // black color for "Thanks"
   textAlign(CENTER, BOTTOM);
